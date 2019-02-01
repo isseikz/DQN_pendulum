@@ -60,3 +60,10 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Unnecessary
+model
+model_0
+*.gif
+*.csv
+*.png
