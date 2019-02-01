@@ -136,7 +136,7 @@ class DQNAgent():
             ai=int((a+1)/2) #±1 をindex(0,1)に。
             new_seq= batch[i,(STATE_NUM+2):(STATE_NUM*2+2)]
             targets[i,ai]=( r+ self.gamma * np.max(self.get_action_value(new_seq)))
-        t = Variable(np.array(targets).reshape((self.batch_num,-1)).astype(np.float32)) 
+        t = Variable(np.array(targets).reshape((self.batch_num,-1)).astype(np.float32))
 
         # ネットの更新
         self.model.zerograds()
@@ -326,15 +326,15 @@ if __name__ == '__main__':
         if i%10 == 0:
             total_reward=sim.run(train=False, movie=False)
             if test_highscore<total_reward:
-                print "highscore!",
+                print( "highscore!"),
                 serializers.save_npz('model/%06d_hs.model'%i, agent.model)
                 test_highscore=total_reward
-            print i,
-            print total_reward,
-            print "epsilon:%2.2e" % agent.get_epsilon(),
-            print "loss:%2.2e" % agent.loss,
+            print( i),
+            print( total_reward),
+            print( "epsilon:%2.2e" % agent.get_epsilon(),)
+            print( "loss:%2.2e" % agent.loss,)
             aw=agent.total_reward_award
-            print "min:%d,max:%d" % (np.min(aw),np.max(aw))
+            print( "min:%d,max:%d" % (np.min(aw),np.max(aw)))
 
             out="%d,%d,%2.2e,%2.2e,%d,%d\n" % (i,total_reward,agent.get_epsilon(),agent.loss, np.min(aw),np.max(aw))
             fw.write(out)

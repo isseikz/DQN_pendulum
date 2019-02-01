@@ -53,7 +53,7 @@ if __name__ == '__main__':
     #####  plot profile
     argv=sys.argv
     if len(argv)!=2:
-        print "Usage: python %s model_file" % (sys.argv[0], )
+        print( "Usage: python %s model_file" % (sys.argv[0], ))
 
     filename = sys.argv[1]
 
@@ -86,4 +86,3 @@ if __name__ == '__main__':
     #     serializers.load_npz(m, agent.model)
     #     total_reward,log=sim.run(train=False, movie=False,enableLog=True)
     #     log2gif(log,"movie/%s.gif"% i, i)
-
